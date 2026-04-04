@@ -1,6 +1,6 @@
 package org.financedashboard.controller;
 
-import org.financedashboard.entity.Transaction;
+import org.financedashboard.model.Transaction;
 import org.financedashboard.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

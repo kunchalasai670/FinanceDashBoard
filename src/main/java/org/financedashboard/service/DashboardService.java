@@ -1,7 +1,7 @@
 package org.financedashboard.service;
 
 
-import org.financedashboard.entity.Transaction;
+import org.financedashboard.entity.TransactionEntity;
 import org.financedashboard.entity.TransactionType;
 import org.financedashboard.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,12 @@ public class DashboardService {
 
     public Map<String, Double> getSummary() {
 
-        List<Transaction> list = repo.findAll();
+        List<TransactionEntity> list = repo.findAll();
 
         double income = 0;
         double expense = 0;
 
-        for (Transaction t : list) {
+        for (TransactionEntity t : list) {
 
             if (t.getType() == TransactionType.INCOME) {
                 income += t.getAmount();

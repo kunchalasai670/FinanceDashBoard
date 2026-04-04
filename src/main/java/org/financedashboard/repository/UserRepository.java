@@ -1,8 +1,8 @@
 package org.financedashboard.repository;
 
-import org.financedashboard.entity.User;
+import org.financedashboard.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByEmail(String email);
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    UserEntity findByEmail(String email);
 }

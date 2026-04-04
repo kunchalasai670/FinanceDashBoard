@@ -1,22 +1,13 @@
-package org.financedashboard.entity;
+package org.financedashboard.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import org.financedashboard.entity.Role;
 
-@Entity
-@Table(name = "users")
 public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
     private String name;
     private String email;
     private String password;
-
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    private boolean active;
 
     public String getName() {
         return name;
@@ -42,6 +33,14 @@ public class User {
         this.password = password;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public boolean isActive() {
         return active;
     }
@@ -50,11 +49,14 @@ public class User {
         this.active = active;
     }
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    private boolean active;
+
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +

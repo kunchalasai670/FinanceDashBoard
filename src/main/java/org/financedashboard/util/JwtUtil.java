@@ -12,7 +12,7 @@ public class JwtUtil {
 
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
-    public String generateToken(String email) {
+    public String generateToken(String email, String name) {
         return Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())

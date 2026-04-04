@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Transaction {
+public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +23,7 @@ public class Transaction {
 
     //Many Transactions belong to One User
     @ManyToOne
-    private User user;
+    private UserEntity userEntity;
 
     public Long getId() {
         return id;
@@ -73,12 +73,12 @@ public class Transaction {
         this.description = description;
     }
 
-    public User getUser() {
-        return user;
+    public UserEntity getUser() {
+        return userEntity;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class Transaction {
                 ", category='" + category + '\'' +
                 ", date=" + date +
                 ", description='" + description + '\'' +
-                ", user=" + user +
+                ", user=" + userEntity +
                 '}';
     }
 }

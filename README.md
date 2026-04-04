@@ -1,11 +1,11 @@
 # FinanceDashBoard
 
-A comprehensive Finance Dashboard Backend API built with Spring Boot, providing secure transaction management, user roles, and advanced data processing capabilities.
+A comprehensive Finance Dashboard Backend API built with Spring Boot, providing secure transaction management, userEntity roles, and advanced data processing capabilities.
 
 
 ## 🎯 Overview
 
-FinanceDashBoard is a robust backend API designed to manage financial transactions with enterprise-grade security. It provides user authentication, role-based access control, transaction management, and comprehensive data processing using JPA and H2 database.
+FinanceDashBoard is a robust backend API designed to manage financial transactions with enterprise-grade security. It provides userEntity authentication, role-based access control, transaction management, and comprehensive data processing using JPA and H2 database.
 
 **Key Purpose:**
 - Secure transaction management for multiple users

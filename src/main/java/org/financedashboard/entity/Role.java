@@ -1,7 +1,7 @@
 package org.financedashboard.entity;
 
 public enum Role {
-    VIEWER,
-    ANALYST,
-    ADMIN
+    ROLE_VIEWER,
+    ROLE_ANALYST,
+    ROLE_ADMIN
 }

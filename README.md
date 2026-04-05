@@ -38,9 +38,7 @@ FinanceDashBoard is a robust backend API designed to manage financial transactio
 
 - *API Features*
   - RESTful API design
-  - Pagination support
   - Error handling and logging
-  - CORS support
 
 ---
 

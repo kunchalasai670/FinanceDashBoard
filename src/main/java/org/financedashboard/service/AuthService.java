@@ -1,10 +1,12 @@
 package org.financedashboard.service;
 
-import org.financedashboard.entity.UserEntity;
 import org.financedashboard.model.User;
 import org.financedashboard.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class AuthService {
@@ -15,15 +17,17 @@ public class AuthService {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public String login(String email, String password) {
 
-        User user = userService.getByEmail(email); //use Entity
+        User user = userService.getByEmail(email);
 
-        if (user == null || !user.getPassword().equals(password)) {
-            throw new RuntimeException("Invalid credentials");
+        if (user == null || !user.isActive() || !passwordEncoder.matches(password, user.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials or inactive user");
         }
 
-        // pass role to JWT
         return jwtUtil.generateToken(email, user.getRole().name());
     }
 }

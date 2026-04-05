@@ -8,7 +8,7 @@ FinanceDashBoard is a robust backend API designed to manage financial transactio
 
 *Key Purpose:*
 - Secure transaction management for multiple users
-- Role-based access control (Admin, User, Manager)
+- Role-based access control (ROLE_VIEWER,ROLE_ANALYST,ROLE_ADMIN)
 - Real-time financial data processing
 - RESTful API for frontend integration
 
@@ -19,7 +19,6 @@ FinanceDashBoard is a robust backend API designed to manage financial transactio
 - *User Management*
   - User registration and authentication
   - Role-based access control (RBAC)
-  - User profile management
 
 - *Transaction Management*
   - Create, read, update, and delete transactions
@@ -27,14 +26,12 @@ FinanceDashBoard is a robust backend API designed to manage financial transactio
   - Transaction history tracking
 
 - *Data Processing*
-  - Real-time data validation
-  - Financial calculations and aggregations
   - Data persistence with JPA
 
 - *Security*
   - Secure password management
   - Role-based endpoint protection
-  - Input validation and sanitization
+  - Input validation
 
 - *API Features*
   - RESTful API design
@@ -48,15 +45,13 @@ FinanceDashBoard is a robust backend API designed to manage financial transactio
 |-----------|----------------------------------------|
 | *Language* | Java                                   |
 | *Framework* | Spring Boot                            |
-| *ORM* | JPA (Java Persistence API) / Hibernate |
+| *ORM* | JPA (Java Persistence API)|
 | *Database* | H2 (Embedded Database)                 |
 | *Build Tool* | Gradle                                 |
 | *API* | RESTful Web Services                   |
 | *Security* | Spring Security                        |
 
 ---
-
-## Installation
 
 ### Prerequisites
 - Java 11 or higher
@@ -109,9 +104,7 @@ This backend enforces strict role-based permissions for all endpoints using JWT 
    Response: { "token": "..." }
 
 3. *Use the token in requests:*
-  - Add header: Authorization: Bearer <your_token>
-  - Example (Postman):
-    - Go to Headers, add: Authorization | Bearer <your_token>
+  - Add Authorization: Bearer <your_token>
 
 ### Example: Forbidden Action
 If an Analyst tries to POST /transactions, the response will be 403 Forbidden.
